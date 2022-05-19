@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace EntityLayer.Concrete
 {
@@ -20,6 +15,9 @@ namespace EntityLayer.Concrete
 
         public Category Category { get; set; }
         public int CategoryID { get; set; }
+
+        public Writer Writer { get; set; }
+        public int WriterID { get; set; }
 
         public List<Comment> Comments { get; set; }
 

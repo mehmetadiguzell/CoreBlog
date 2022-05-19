@@ -1,11 +1,6 @@
 ﻿using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace DataAccessLayer.Repositories
 {
@@ -13,9 +8,10 @@ namespace DataAccessLayer.Repositories
     {
         public void Add(T entity)
         {
-            using (Context db=new Context())
+            using (Context db = new Context())
             {
                 db.Add(entity);
+                db.SaveChanges();
             }
         }
 
@@ -24,6 +20,7 @@ namespace DataAccessLayer.Repositories
             using (Context db = new Context())
             {
                 db.Remove(entity);
+                db.SaveChanges();
             }
         }
 
@@ -33,7 +30,15 @@ namespace DataAccessLayer.Repositories
             {
                 return db.Set<T>().ToList();
             }
-            
+
+        }
+
+        public List<T> GetAll(Expression<Func<T, bool>> filter)
+        {
+            using (Context db = new Context())
+            {
+                return db.Set<T>().Where(filter).ToList();
+            }
         }
 
         public T GetById(int id)
@@ -43,12 +48,12 @@ namespace DataAccessLayer.Repositories
                 return db.Set<T>().Find(id);
             }
         }
-
         public void Update(T entity)
         {
             using (Context db = new Context())
             {
                 db.Update(entity);
+                db.SaveChanges();
             }
         }
     }
