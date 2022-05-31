@@ -1,0 +1,43 @@
+﻿@model List<EntityLayer.Concrete.Blog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <div class="ibox">
+                <div class="ibox-content product-box">
+
+                    <div class="product-imitation">
+                        <img src="~/CoreBlogTema/web/images/@item.BlogImage" width="240"height="225";/>
+
+                    </div>
+                    <div class="product-desc">
+                        <span class="product-price">
+                            @item.BlogCreateDate.ToString("dd-MMM-yyyy")
+                        </span>
+                        <small class="text-muted">@item.Category.CategoryName</small>
+                        <a href="#" class="product-name"> @item.BlogTitle</a>
+
+
+
+                        <div class="small m-t-xs">
+                            @item.BlogContent
+                        </div>
+                        <div class="m-t text-righ">
+
+                            <a href="/Blog/BlogReadAll/@item.BlogID" class="btn btn-xs btn-outline btn-primary">Detaylar <i class="fa fa-long-arrow-right"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+

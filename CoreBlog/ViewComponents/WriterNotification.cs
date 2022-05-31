@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreBlog.ViewComponents
 {
-    public class WriterNotification: ViewComponent
+    public class WriterNotification : ViewComponent
     {
         NotificationManager notificationManager = new NotificationManager(new EfNotificationRepository());
         public IViewComponentResult Invoke()

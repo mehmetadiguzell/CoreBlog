@@ -1,0 +1,21 @@
+﻿
+@model EntityLayer.Concrete.Message2
+@{
+    ViewData["Title"] = "SandMessage";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+@using (Html.BeginForm("SandMessage", "Message", FormMethod.Post))
+{
+    <label>Alıcı</label>
+    @*@Html.TextBoxFor(m=>m.Subject,new {@class="form-control"})*@
+    <br />
+    <label>Konu</label>
+    @Html.TextBoxFor(m=>m.Subject,new {@class="form-control"})
+    <br />
+     <label>Mesaj</label>
+    @Html.TextAreaFor(m=>m.MessageDetails,10,3,new {@class="form-control"})
+    <br />
+    <button class="btn btn-succes">Gönder</button>
+}
+

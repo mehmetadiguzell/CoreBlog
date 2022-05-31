@@ -9,5 +9,6 @@ namespace BusinessLayer.Abstract
         //void BlogUpdate(Comment comment);
         List<Comment> GetList(int id);
         //Comment GetById(int id);
+        List<Comment> GetCommentListWithBlog();
     }
 }

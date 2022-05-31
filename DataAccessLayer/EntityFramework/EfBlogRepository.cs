@@ -20,7 +20,7 @@ namespace DataAccessLayer.EntityFramework
         {
             using (Context db = new Context())
             {
-                return db.Blogs.Include(m => m.Category).Where(x=>x.WriterID==id).ToList();
+                return db.Blogs.Include(m => m.Category).Where(x => x.WriterID == id).ToList();
             }
         }
     }

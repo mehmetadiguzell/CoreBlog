@@ -1,0 +1,19 @@
+﻿@model CoreBlog.Models.RoleUpdateWM
+@{
+    ViewData["Title"] = "UpdateRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <div class="form-group">
+        <lsbel>Role İD</lsbel>
+        <input type="text" name="id" value="@Model.id" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <lsbel>Role Adı</lsbel>
+        <input type="text" name="name" value="@Model.name" class="form-control" required />
+    </div>
+    <button class="btn btn-succes">Güncelle</button>
+</form>
+
+

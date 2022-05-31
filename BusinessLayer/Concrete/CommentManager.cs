@@ -14,7 +14,12 @@ namespace BusinessLayer.Concrete
         }
         public void CommentAdd(Comment comment)
         {
-            throw new NotImplementedException();
+            _commentdal.Add(comment);
+        }
+
+        public List<Comment> GetCommentListWithBlog()
+        {
+            return _commentdal.GetCommentListWithBlog();
         }
 
         public List<Comment> GetList(int id = 0)
